@@ -1,0 +1,74 @@
+{
+  "urls": {
+    "loginPage": "https://rahulshettyacademy.com/client/#/auth/login",
+    "dashboardPath": "/client/#/dashboard/dash",
+    "cartPath": "/client/#/dashboard/cart",
+    "orderPath": "/client/#/dashboard/order"
+  },
+
+  "registerPageData": {
+    "firstName": "Session",
+    "lastName": "Five",
+    "emailPrefix": "session5user",
+    "emailDomain": "@email.com",
+    "phoneNumber": "9867871973",
+    "occupation": "Engineer",
+    "gender": "Male",
+    "password": "P@ssw0rd@123",
+    "confirmPassword": "P@ssw0rd@123",
+    "successMessage": "Account Created Successfully"
+  },
+
+  "loginPageData": {
+    "positive": {
+      "description": "valid email and valid password",
+      "password": "P@ssw0rd@123"
+    },
+    "negative": [
+      {
+        "description": "valid email and wrong password",
+        "email": "",
+        "password": "WrongPass@999",
+        "expectedError": "Incorrect email or password."
+      },
+      {
+        "description": "unregistered email and any password",
+        "email": "not.registered.user.999@email.com",
+        "password": "P@ssw0rd@123",
+        "expectedError": "Incorrect email or password."
+      }
+    ]
+  },
+
+  "dashboardPageData": {
+    "availableItems": ["ADIDAS ORIGINAL", "ZARA COAT 3", "IPHONE 13 PRO"],
+    "itemToAdd": "ZARA COAT 3",
+    "nonExistingItem": "SAMSUNG GALAXY S99",
+    "addedToCartMessage": "Product Added To Cart"
+  },
+
+  "orderPageData": {
+    "creditCardNumber": {
+      "originalValue": "4542 9931 9292 2293",
+      "newValue": "4111 1111 1111 1111"
+    },
+    "expiryDate": {
+      "month": "09",
+      "year": "28"
+    },
+    "cvvCode": "123",
+    "nameOnCard": "Session Five",
+    "applyCoupon": {
+      "coupon": "rahulshettyacademy",
+      "expectedMessage": "* Coupon Applied"
+    },
+    "email": {
+      "inheritedFromLogin": true
+    },
+    "selectCountry": {
+      "partialValue": "ind",
+      "fullValue": "India"
+    },
+    "orderSuccessMessage": "Thankyou for the order."
+  }
+}
