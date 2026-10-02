@@ -9,11 +9,6 @@ export class SpecialLocator_basePage
         {
               await this.page.goto("https://rahulshettyacademy.com/angularpractice/");
         }
-        // open shop page
-async openShopPage():Promise<void>
-        {
-              await this.page.goto("https://rahulshettyacademy.com/angularpractice/shop");
-        }
-}
+      }
 
 
