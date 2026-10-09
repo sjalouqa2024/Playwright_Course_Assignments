@@ -15,6 +15,5 @@ export class DataDrivenCart {
     // actions
     async clickCheckoutButton(): Promise<void> {
         await this.getCheckoutButton().click();
-        await this.page.waitForLoadState("networkidle");
     }
 }

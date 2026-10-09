@@ -6,7 +6,7 @@ export class DataDrivenRegister {
     // navigation
     async navigateToLoginPage(url: string): Promise<void> {
         await this.page.goto(url);
-        await this.page.waitForLoadState("networkidle");
+        await this.getRegisterLink().waitFor({ state: "visible" });
     }
 
     async openRegisterPage(): Promise<void> {
@@ -74,7 +74,7 @@ export class DataDrivenRegister {
 
     async clickRegisterButton(): Promise<void> {
         await this.getRegisterButton().click();
-        await this.page.waitForLoadState("networkidle");
+        await this.getSuccessMessage().waitFor({ state: "visible" });
     }
 
     async fillRegisterForm(data: {

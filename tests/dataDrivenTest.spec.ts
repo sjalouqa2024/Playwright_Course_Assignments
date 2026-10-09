@@ -19,7 +19,7 @@ async function loginAsRegisteredUser(page: Page): Promise<void> {
     const loginPage = new DataDrivenLogin(page);
     await loginPage.navigateToLoginPage(urls.loginPage);
     await loginPage.login(email, loginPageData.positive.password);
-    await page.waitForURL(`**${urls.dashboardPath}`);
+    await expect(page).toHaveURL(new RegExp(urls.dashboardPath));
 }
 
 test.describe("Session 5 - data driven purchase flow", () => {
@@ -61,8 +61,7 @@ test.describe("Session 5 - data driven purchase flow", () => {
         await loginPage.login(email, loginPageData.positive.password);
 
         // C. assert being on the dashboard page
-        await page.waitForURL(`**${urls.dashboardPath}`);
-        expect(page.url()).toContain(urls.dashboardPath);
+        await expect(page).toHaveURL(new RegExp(urls.dashboardPath));
         await new DataDrivenDashboard(page).waitForProducts();
         await page.screenshot({ path: `${screenshotDir}/1_login_positive.png`, fullPage: true });
     });
@@ -98,7 +97,7 @@ test.describe("Session 5 - data driven purchase flow", () => {
 
         // E. checkout page
         await cartPage.clickCheckoutButton();
-        await page.waitForURL(`**${urls.orderPath}**`);
+        await expect(page).toHaveURL(new RegExp(urls.orderPath));
         const orderPage = new DataDrivenOrder(page);
         await expect(orderPage.getPlaceOrderButton()).toBeVisible();
         await page.screenshot({ path: `${screenshotDir}/4_checkout_page.png`, fullPage: true });

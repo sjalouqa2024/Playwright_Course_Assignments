@@ -10,15 +10,15 @@ export class DataDrivenLogin {
 
     // locators
     getEmail(): Locator {
-        return this.page.locator("#userEmail");
+        return this.page.getByPlaceholder("email@example.com");
     }
 
     getPassword(): Locator {
-        return this.page.locator("#userPassword");
+        return this.page.getByPlaceholder("enter your passsword");
     }
 
     getLoginButton(): Locator {
-        return this.page.locator("#login");
+        return this.page.getByRole("button", { name: "Login" });
     }
 
     getErrorToast(): Locator {

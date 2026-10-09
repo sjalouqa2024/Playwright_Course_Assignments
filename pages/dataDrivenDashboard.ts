@@ -51,6 +51,6 @@ export class DataDrivenDashboard {
 
     async openCart(): Promise<void> {
         await this.getCartButton().click();
-        await this.page.waitForLoadState("networkidle");
+        await this.page.getByRole("button", { name: "Checkout" }).waitFor({ state: "visible" });
     }
 }
