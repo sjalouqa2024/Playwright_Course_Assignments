@@ -121,6 +121,5 @@ export class DataDrivenOrder {
 
     async placeOrder(): Promise<void> {
         await this.getPlaceOrderButton().click();
-        await this.page.waitForLoadState("networkidle");
     }
 }
