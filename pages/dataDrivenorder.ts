@@ -70,6 +70,17 @@ export class DataDrivenOrder {
         return this.page.locator("h1.hero-primary");
     }
 
+    // the confirmation page shows one " | <24 char id> | " label per product ordered
+    getOrderIdLabels(): Locator {
+        return this.page.locator("label.ng-star-inserted", { hasText: /\|\s*[0-9a-f]{24}\s*\|/ });
+    }
+
+    async getPlacedOrderIds(): Promise<string[]> {
+        await this.getOrderIdLabels().first().waitFor({ state: "visible" });
+        const texts = await this.getOrderIdLabels().allInnerTexts();
+        return texts.map((text) => text.replace(/\|/g, "").trim());
+    }
+
     // actions
     async fillCreditCardNumber(cardNumber: string): Promise<void> {
         await this.getCreditCardNumber().fill(cardNumber);

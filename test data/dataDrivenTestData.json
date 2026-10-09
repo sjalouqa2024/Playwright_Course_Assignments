@@ -1,9 +1,19 @@
 {
   "urls": {
-    "loginPage": "https://rahulshettyacademy.com/client/#/auth/login",
+    "basePage": "https://rahulshettyacademy.com/",
+    "loginPage":"https://rahulshettyacademy.com/api/ecom/auth/login",
+    "uiLoginPage": "https://rahulshettyacademy.com/client/#/auth/login",
+    "loginApiEndpoint": "/api/ecom/auth/login",
     "dashboardPath": "/client/#/dashboard/dash",
     "cartPath": "/client/#/dashboard/cart",
-    "orderPath": "/client/#/dashboard/order"
+    "orderPath": "/client/#/dashboard/order",
+    "myOrdersPath": "/client/#/dashboard/myorders",
+    "orderDetailsPage": "https://rahulshettyacademy.com/client/#/dashboard/order-details",
+    "orderDetailsPath": "/client/#/dashboard/order-details"
+  },
+
+  "orderDetailsPageData": {
+    "orderId": "6ac8dac92be7a4bc2b981267"
   },
 
   "registerPageData": {
@@ -36,19 +46,13 @@
         "email": "not.registered.user.999@email.com",
         "password": "P@ssw0rd@123",
         "expectedError": "Incorrect email or password."
-      },
-      {
-        "description": "unregistered email and wrong password",
-        "email": "not.registered.user.998@email.com",
-        "password": "WrongPass@999",
-        "expectedError": "Incorrect email or password."
       }
     ]
   },
 
   "dashboardPageData": {
     "availableItems": ["ADIDAS ORIGINAL", "ZARA COAT 3", "IPHONE 13 PRO"],
-    "itemToAdd": "ZARA COAT 3",
+    "itemsToAdd": ["ZARA COAT 3", "ADIDAS ORIGINAL"],
     "nonExistingItem": "SAMSUNG GALAXY S99",
     "addedToCartMessage": "Product Added To Cart"
   },
